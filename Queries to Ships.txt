@@ -1,0 +1,7 @@
+-- 14 Найдите класс, имя и страну для кораблей из таблицы Ships, имеющих не менее 10 орудий.
+
+SELECT s.class, name, country
+  FROM Ships AS s
+       INNER JOIN Classes AS c
+	   ON s.class = c.class
+          AND numGuns >= 10

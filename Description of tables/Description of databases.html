@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://sql-ex.ru/help/select13.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./Description of databases_files/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+	<!-- Yandex Native Ads -->
+	<script type="text/javascript" async="" src="./Description of databases_files/top100.js.Без названия"></script><script>window.yaContextCb=window.yaContextCb||[]</script>
+	<script src="./Description of databases_files/context.js.Без названия" async=""></script>
+
+ <title>SQL(DML)&nbsp;help: Appendixes. Databases schemas and exercises list</title>
+        <link rel="stylesheet" type="text/css" href="./Description of databases_files/style.css">
+		<link rel="stylesheet" type="text/css" href="./Description of databases_files/help.css">
+
+    	<link rel="stylesheet" title="Default" href="./Description of databases_files/default.css">
+        <script type="text/javascript" src="./Description of databases_files/highlight.js.Без названия"></script>
+        <meta name="Description" content="SQL tutorial: Appendixes. Databases schemas and exercises list.">
+        <meta name="Keywords" content="SQL, SELECT, database, sql query, guide, tutorial, sql help and faq, education, interactive exercises, testing, learning, training SELECT statement, FROM, JOIN, WHERE, GROUP BY, HAVING, INSERT, UPDATE, DELETE, sql syntax, Structured Query Language">
+        <meta name="abstract" content="SQL DML Tutorial with examples of usage of all DML constructions and statements.  SQL Server usage features. The tutorial is accompanied by the exercises which can be carried out  online  on the site.">
+        <meta name="title" content="SQL DML Tutorial with examples of usage of all DML constructions and statements.  SQL Server usage features. The tutorial is accompanied by the exercises which can be carried out  online  on the site.">        <script language="JAVASCRIPT" src="./Description of databases_files/main.js.Без названия"></script>
+ </head>
+ <body bgcolor="#F5F5F5">
+
+ <a name="ref_beg"></a>
+<!-- Yandex.RTB R-A-184442-11 -->
+<div id="yandex_rtb_R-A-184442-11"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-184442-11',
+    blockId: 'R-A-184442-11'
+  })
+})</script>
+<form name="frmtpl">
+<table width="98%" border="0" cellpadding="5" align="center">
+    <tbody><tr>
+        <td width="33%" bgcolor="#CCCCCC" valign="middle"><b><a class="none" href="https://sql-ex.ru/help/">SQL syntax</a></b></td>
+        <td width="33%" bgcolor="#CCCCCC" align="center" valign="middle">
+         Language&nbsp;<select name="lsttpl" onchange="Sel_Lang(document.frmtpl.lsttpl.selectedIndex)"><option value="0"> Русский </option><option value="1" selected=""> English </option></select>
+        </td>
+        <td width="33%" bgcolor="#CCCCCC" align="right" valign="middle"><label for="pages">Choose a page&nbsp;</label><select name="pages" onchange="location=this.value"><option value="select0.php">Index</option><option value="select1.php">1</option><option value="select2.php">2</option><option value="select3.php">3</option><option value="select4.php">4</option><option value="select5.php">5</option><option value="select6.php">6</option><option value="select7.php">7</option><option value="select8.php">8</option><option value="select9.php">9</option><option value="select10.php">10</option><option value="select11.php">11</option><option value="select12.php">12</option><option value="select13.php" selected="">13</option><option value="select14.php">14</option><option value="select15.php">15</option><option value="select16.php">16</option><option value="select17.php">17</option><option value="select18.php">18</option><option value="select19.php">19</option><option value="select20.php">20</option></select><!-- Top100 (Kraken) Counter -->
+<script>
+    (function (w, d, c) {
+    (w[c] = w[c] || []).push(function() {
+        var options = {
+            project: 718545,
+        };
+        try {
+            w.top100Counter = new top100(options);
+        } catch(e) { }
+    });
+    var n = d.getElementsByTagName("script")[0],
+    s = d.createElement("script"),
+    f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src =
+    (d.location.protocol == "https:" ? "https:" : "http:") +
+    "//st.top100.ru/top100/top100.js";
+
+    if (w.opera == "[object Opera]") {
+    d.addEventListener("DOMContentLoaded", f, false);
+} else { f(); }
+})(window, document, "_top100q");
+</script>
+<noscript>
+  <img src="//counter.rambler.ru/top100.cnt?pid=718545" alt="???-100" />
+</noscript>
+<!-- END Top100 (Kraken) Counter -->
+
+</td>
+</tr>
+</tbody></table>
+</form><div style="width:90%;position:relative;left:5%;">
+<a name="apx1"></a><h1>Appendix 1. About educational databases</h1>
+<p>All exercises are performed on the databases described below.
+<a name="db_1"></a></p><h2>1. Computer firm</h2>
+The database scheme consists of four tables:<br>
+Product(maker, model, type)<br>
+PC(code, model, speed, ram, hd, cd, price)<br>
+Laptop(code, model, speed, ram, hd, screen, price)<br>
+Printer(code, model, color, type, price)<br>
+The Product table contains data on the maker, model number, and type of product ('PC', 'Laptop', or 'Printer'). It is assumed that model numbers in the Product table are unique for all makers and product types. Each personal computer in the PC table is unambiguously identified by a unique code, and is additionally characterized by its model (foreign key referring to the Product table), processor speed (in MHz) – speed field, RAM capacity (in Mb) - ram, hard disk drive capacity (in Gb) – hd, CD-ROM speed (e.g, '4x') - cd, and its price. The Laptop table is similar to the PC table, except that instead of the CD-ROM speed, it contains the screen size (in inches) – screen. For each printer model in the Printer table, its output type (‘y’ for color and ‘n’ for monochrome) – color field, printing technology ('Laser', 'Jet', or 'Matrix') – type, and price are specified.<center><img src="./Description of databases_files/computers.gif"></center>
+<a name="db_2"></a><h2>2. Recycling firm</h2>
+The firm owns several buy-back centers for collection of recyclable materials. Each of them receives funds to be paid to the recyclables suppliers. Data on funds received is recorded in the table <br>
+Income_o(point, date, inc)<br>
+The primary key is (point, date), where point holds the identifier of the buy-back center, and date corresponds to the calendar date the funds were received. The date column doesn’t include the time part, thus, money (inc) arrives no more than once a day for each center. Information on payments to the recyclables suppliers is held in the table<br>
+Outcome_o(point, date, out)<br>
+In this table, the primary key (point, date) ensures each buy-back center reports about payments (out) no more than once a day, too. <br>
+For the case income and expenditure may occur more than once a day, another database schema with tables having a primary key consisting of the single column code is used:<br>
+Income(code, point, date, inc)<br>
+Outcome(code, point, date, out)<br>
+Here, the date column doesn’t include the time part, either.<center><img src="./Description of databases_files/income.gif"></center>
+<a name="db_3"></a><h2>3. Ships</h2>
+The database of naval ships that took part in World War II is under consideration. The database consists of the following relations: <br>
+Classes(class, type, country, numGuns, bore, displacement) <br>
+Ships(name, class, launched) <br>
+Battles(name, date) <br>
+Outcomes(ship, battle, result) <br>
+Ships in classes all have the same general design. A class is normally assigned either the name of the first ship built according to the corresponding design, or a name that is different from any ship name in the database. The ship whose name is assigned to a class is called a lead ship.<br>
+The Classes relation includes the name of the class, type (can be either bb for a battle ship, or bc for a battle cruiser), country the ship was built in, the number of main guns, gun caliber (bore diameter in inches), and displacement (weight in tons). The Ships relation holds information about the ship name, the name of its corresponding class, and the year the ship was launched. The Battles relation contains names and dates of battles the ships participated in, and the Outcomes relation - the battle result for a given ship (may be sunk, damaged, or OK, the last value meaning the ship survived the battle unharmed). <br>
+Notes: 1) The Outcomes relation may contain ships not present in the Ships relation. 2) A ship sunk can’t participate in later battles. 3) For historical reasons, lead ships are referred to as head ships in many exercises.4) A ship found in the Outcomes table but not in the Ships table is still considered in the database. This is true even if it is sunk.<center><img src="./Description of databases_files/ships.gif"></center>
+<a name="db_4"></a><h2>4. Airport</h2>
+The database schema consists of 4 tables:<br>
+Company(ID_comp, name)<br>
+Trip(trip_no, id_comp, plane, town_from, town_to, time_out, time_in)<br>
+Passenger(ID_psg, name)<br>
+Pass_in_trip(trip_no, date, ID_psg, place)<br>
+The Company table contains IDs and names of the airlines transporting passengers. The Trip table contains information on the schedule of flights: trip (flight) number, company (airline) ID, plane type, departure city, destination city, departure time, and arrival time. The Passenger table holds IDs and names of the passengers. The Pass_in_trip table contains data on flight bookings: trip number, departure date (day), passenger ID and her seat (place) designation during the flight. It should be noted that<br>
+- scheduled flights are operated daily; the duration of any flight is less than 24 hours; town_from &lt;&gt; town_to;<br>
+- all time and date values are assumed to belong to the same time zone;<br>
+- departure and arrival times are specified with one minute precision;<br>
+- there can be several passengers bearing the same first name and surname (for example, Bruce Willis);<br>
+- the seat (place) designation consists of a number followed by a letter; the number stands for the row, while the letter (a – d) defines the seat position in the grid (from left to right, in alphabetical order;<br>
+- connections and constraints are shown in the database schema below.<br>
+<center><img src="./Description of databases_files/aero.gif"></center>
+<a name="db_5"></a><h2>5. Painting</h2>
+The database schema consists of 3 tables:<br>
+utQ (Q_ID int, Q_NAME varchar(35)), utV (V_ID int, V_NAME varchar(35), V_COLOR char(1)), utB (B_DATETIME datetime, B_Q_ID int, B_V_ID int, B_VOL tinyint).<br>
+The utQ table contains the identifiers and names of squares, the initial color of which is black. (Note: black is not a color and is considered unpainted. Only Red, Green and Blue are colors.) <br>
+The utV table contains the identifiers and names of spray cans and the color of paint they are filled with.<br>
+The utB table holds information on squares being spray-painted, and contains the time of the painting event, the square and spray can identifiers, the quantity of paint being applied.<br>
+It should be noted that<br>
+- a spray can may contain paint of one of three colors: red (V_COLOR='R'), green (V_COLOR='G'), or blue (V_COLOR='B');<br>
+- any spray can initially contains 255 units of paint;<br>
+- the square color is defined in accordance with the RGB model, i.e. R=0, G=0, B=0 is black, whereas R=255, G=255, B=255 is white;<br>
+- any record in the utB table decreases the paint quantity in the corresponding spray can by B_VOL and accordingly increases the amount of paint applied to the square by the same value;<br>
+- B_VOL must be greater than 0 and less or equal to 255;<br>
+- the paint quantity of a single color applied to one square can’t exceed 255, and there can’t be a less than zero amount of paint in a spray can;<br>
+- the time of the painting event (B_DATETIME) is specified with one second precision, i.e. it does not contain milliseconds;<br>
+- for historical reasons, the spray cans are referred to as “balloons” by many of the exercises, and the utV table contains spray can names (V_NAME column) such as “Balloon # 01”, etc.<center><img src="./Description of databases_files/painting.gif"></center>
+
+<a name="apx2"></a>
+<!-- Yandex.RTB -->
+<!-- Yandex.RTB R-A-184442-9 -->
+<div id="yandex_rtb_R-A-184442-9"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-184442-9',
+    blockId: 'R-A-184442-9'
+  })
+})</script>
+<h1>Appendix 2. The list of exercises (SELECT)</h1>
+<p>Below is the list of all the first-phase rating exercises which are optional with respect to certification and advance over stages. <br>
+The number of each exercise, the database number for the corresponding exercise, and the exercise complexity level are given in the list.
+<br><br>
+<style type="text/css">
+<!--
+.cell {
+    border:#750000 solid 1px;
+    cursor:pointer;
+    color:#750000;
+}
+.inv {
+	display:none;
+}
+-->
+</style></p><table border="0" cellpadding="5" align="center"><tbody><tr><td align="center" bgcolor="#D3DCE3"><b>no.</b></td><td align="center" bgcolor="#D3DCE3"><b>DB</b></td><td align="center" bgcolor="#D3DCE3"><b>level</b></td><td align="center" bgcolor="#D3DCE3"><b>exercise</b></td></tr>
+<tr><td bgcolor="#DDDDDD">-1</td><td bgcolor="#DDDDDD">5</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">With <a class="let" href="http://www.sqlbooks.ru/readarticle.aspx?part=09&amp;file=addition12" target="_blank">the least-square method</a>, calculate the linear dependence of paint expenses on time:    
+V = at + b, 
+where    V - paint supply;    t - time in seconds, counted from the first painting (t = 0).   
+Result set: a with 8 digits that can be placed to the right of the decimal point;   b with 2 digits that can be placed to the right of the decimal point.</td></tr>
+<tr><td bgcolor="#CCCCCC">-2</td><td bgcolor="#CCCCCC">3</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">For each country, find the year, in which the maximal number of ships had been launched.
+In the case of more than one year in question, take a minimal year. Result set: country, number of ships, year</td></tr>
+<tr><td bgcolor="#DDDDDD">-3</td><td bgcolor="#DDDDDD">5</td><td bgcolor="#DDDDDD">2</td><td bgcolor="#DDDDDD">There are torussians of three colors (red, green, blue) who live in the <a class="let" href="http://www.sql-tutorial.ru/ru/book_torus_planet.html">Torus 6x4</a> planet.
+The first 24 squares of utQ table (ordered by B_Q_ID) - the countries of the planet.
+T00 - first square
+T03 - square number four
+T10 - square number five
+T53 - square number twenty four
+Amount of the paint on a square - the amount of torussians of each color(R, G, B)
+On the Merkadot's birthday all torussians in each country split groups - 8 groups of each color; The amount of torussians in each group equals R/8, G/8, B/8. All the groups are sent to the 8 neighboring countries (by one group of each color in each neighboring country).
+The rest of the torussians are staying at home (R%8, G%8, B%8 respectively)
+Find the amount torussians of each color in every country on this significant day
+Output: amount of torussians of each color on the Mercadot's map for country "T00" using the format: "Txy - cccR cccG cccB" where Txy - country name, ccc - the amount with leading zeroes.
+
+</td></tr>
+<tr><td bgcolor="#CCCCCC">-4</td><td bgcolor="#CCCCCC">5</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">Find the squares with the time interval between first and finish paintings greater than average time interval for painted squares.
+Result set: square name, maximal time between its sequential paintings in seconds.</td></tr>
+<tr><td bgcolor="#DDDDDD">-5</td><td bgcolor="#DDDDDD">3</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">The Battles table contains not only major battles with the participation of many ships but also records, starting with symbol # and containing data about minor sea conflicts. Related conflicts combined in a groups from 1 to 6 items.
+Name format of such records is as follows:
+- # followed by group code (does not contain digits, may be missing)
+- continues with group registration number (integer, is required)
+- continues with additional conflict number inside of group. It could be arabian or roman numerals, letters of Latin with different separators, for example a,b,c... /1,/2,/3... .1,.2,.3... i,ii,iii... etc., but the same for a whole group and with no gaps.
+The first or only conflict in a group may not have such additional number.
+Get list of conflicts records, sorted by group code, group number, additional number. 
+Result set: The name of conflict, the number by order (starting with
+1)</td></tr>
+<tr><td bgcolor="#CCCCCC">-6</td><td bgcolor="#CCCCCC">4</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">One second of a flight of each passenger gives 1 cent ($0.01) profit to airline company. Taking this fact into account, perform ABC analysis of passengers attractiveness (an airline company does not matter).
+ABC analysis is based on Pareto principle - 80% of your sales come from 20% of your clients. After the analysis, passengers should be grouped into 3 categories: A, B, and C. The algorithm:
+1. Calculate ratio of each passenger's profit contribution with running totals (S)  to total profit from all passengers (TS). Contribution with running totals for each passenger is calculated by summation of his profit with profits from all those passengers that give larger or equal profits. In the case of equal profits, the smaller running totals will be for the passenger, name of which goes earlier in alphabetic order.
+2. Group the passengers over ABC categories. Category "A" - passengers with S/TS between 0.00% and 80.00% (inclusive). Category "B" - S/TS from 80.01% up to 95.00%. Category "C" - S/TS from 95.01% up to 100%.
+Result set: Passenger's name, sum of profit from this passenger ($), S/TS of the passenger in percent (accuracy within 0.01), ABC category of the passenger.</td></tr>
+<tr><td bgcolor="#DDDDDD">-7</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">In Product table, find out the models the first symbol of which represents an even digit, and the last one - odd digit.
+The first symbol should also be less than the last one.
+Result set: model, type of model, product of first and last digits in model's No.
+</td></tr>
+<tr><td bgcolor="#CCCCCC">-8</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">A scrap recycling company is examining status of their outlets. Assuming  each outlet starts with $10000 dollars find the date which is was profitable, in case the outlet is not profitable, write the last date an income was recorded. 
+To determine the profit of a company we will look at the Outcome_o only and not look at either incomes tables or the the outcome table.  
+Result set: Outlet ID (point), profitable date (or last working day), profit (or remaining to be profit).</td></tr>
+<tr><td bgcolor="#DDDDDD">-9</td><td bgcolor="#DDDDDD">3</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">A ship can be mentioned more than once in the Outcomes table if it took part in more than one battle.
+It's needed to find out ship names which differ by only case of characters, say, "Duke of York" and "duke Of york".
+Result set: ship's name (any variant of writing), number of different writing variants that could be used for this ship in the table.</td></tr>
+<tr><td bgcolor="#CCCCCC">-10</td><td bgcolor="#CCCCCC">4</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">Display flights map on Google Static Maps.
+SHow only unique directions so that name of the first city is earlier than second city’s name in alphabetic order.
+For example, if there is a flight from Rome to Berlin, but there is no one from Berlin to Rome, you need to show a direction Berlin-Rome. Or if there are both flights, from Milan to Madrid and from Madrid to Milan, you need to show only one direction Madrid-Milan.
+Output resulting directions in alphabetical order of their cities.
+For each city display a marker with first letter of city’s name.
+Resulting string should be like this (without line breaks):
+&lt;img src="http://maps.googleapis.com/maps/api/staticmap
+?path=weight:3|Aaa|Bbb
+&amp;path=weight:3|Aaa|Ccc
+&amp;path=weight:3|Bbb|Ccc
+&amp;markers=label:A|Aaa
+&amp;markers=label:B|Bbb
+&amp;markers=label:C|Ccc
+&amp;size=512x512&amp;sensor=false"&gt;
+
+, where
+&lt;img src="http://maps.googleapis.com/maps/api/staticmap - directive to use Google Static Maps;
+?path=weight:3|Aaa|Bbb - first direction, from city Aaa to city Bbb with line thickness 3;
+&amp;path=weight:3|... - all other directions;
+&amp;markers=label:A|Aaa - marker (A) of city Aaa;
+&amp;size=512x512 - indication of size of the map 512x512;
+&amp;sensor=false"&gt; - required parameter.</td></tr>
+<tr><td bgcolor="#DDDDDD">-11</td><td bgcolor="#DDDDDD">3</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">Provide each ship's name from Ships table in base64 (<a class="let" href="http://en.wikipedia.org/wiki/Base64" target="_blank">wikipedia</a>).
+Output: name, base64name.</td></tr>
+<tr><td bgcolor="#CCCCCC">-12</td><td bgcolor="#CCCCCC">4</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">At the airport, mathematician Ivanov has been calculating the factorial of the trip number for fun.
+For each trip, compute the number of trailing zeros in the result obtained by Ivanov.
+Note: the trip number cannot contain more than 4 digits. 
+Output: trip_no, quantity of trailing zeros.</td></tr>
+<tr><td bgcolor="#DDDDDD">-13</td><td bgcolor="#DDDDDD">4</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">Find number of passengers for each day in the first half of the year 2003 from the date of a first trip up to the date of a last trip in this half of a year. First half of a year is the interval from 03.01.01 to 03.06.30. Result set: date, number of passenger </td></tr>
+<tr><td bgcolor="#CCCCCC">-14</td><td bgcolor="#CCCCCC">3</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">Determine the names of only those classes, which include only the ships with names consisting of only the characters used in the name of some class.
+Note. Case of characters does not matter.</td></tr>
+<tr><td bgcolor="#DDDDDD">-15</td><td bgcolor="#DDDDDD">5</td><td bgcolor="#DDDDDD">2</td><td bgcolor="#DDDDDD">Round parasols are installed in the coordinates of B_Q_ID, B_V_ID (utB table) on a flat sandy beach. Radius of each parasol equals B_VOL. Parasols are parallel to the sand. The sun is at its zenith. Each value of B_DATETIME corresponds to a separate task. Find out the area of shadow for each B_DATETIME value.
+Output: B_DATETIME; the area of shadow rounded to the nearest integer.</td></tr>
+<tr><td bgcolor="#CCCCCC">-16</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">Determine such outlets (points) which have in Outcome table the records corresponding to every working day within some week (from Monday till Friday, without taking holidays into account).
+Deduce: point, date of Monday of full working week in the format "YYYY-MM-DD", total value of `out` for this week.
+</td></tr>
+<tr><td bgcolor="#DDDDDD">-17</td><td bgcolor="#DDDDDD">4</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">Concatenate the trip numbers sorted in ascending order into a single string. Starting from the left, break up the resulting string into substrings consisting of three characters each; leftover symbols are discarded. 
+Treating each substring as a number, get their sum, as well as the minimum and maximum numbers. 
+Result set: minimum number, maximum number, sum.</td></tr>
+<tr><td bgcolor="#CCCCCC">-18</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">The Income and Income_o tables are considered, with records in them corresponding to the same set of buy-back centers.
+Each center is deemed to have been working on all dates occurring in the aforementioned tables, no matter to which centers they are corresponding, that lie within the time period between the first and the last date this center received funds.
+For each center having the highest average cash receipts per working day, determine the date(s) it received the largest sum of money. For these dates, display ALL information present in the tables, namely point, date, inc, code (or NULL if the entry belongs to Income_o).
+</td></tr>
+</tbody></table></div><br><br>
+<center>
+<small>
+
+</small>
+</center>
+<br><br><p></p>
+<!-- раскраска -->
+  	<script type="text/javascript">
+      hljs.initHighlightingOnLoad('sql');
+    </script><script type="text/javascript" src="./Description of databases_files/sql.js.Без названия"></script>
+
+<center>
+<a href="https://sql-ex.ru/help/select12.php">Previous</a> | <a href="https://sql-ex.ru/help/select0.php">Index</a> | <a href="https://sql-ex.ru/help/select14.php">Next</a><br><br>
+<!-- Yandex.RTB --><!-- Yandex.RTB R-A-184442-10 -->
+<div id="yandex_rtb_R-A-184442-10"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-184442-10',
+    blockId: 'R-A-184442-10'
+  })
+})</script></center>
+
+<br>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC" valign="middle">
+ <tbody><tr>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/" style="font-size: 8pt;">Home</a></td>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/exercises.php" target="exercises" style="font-size: 8pt;"><b>SELECT</b> exercises (rating stages)</a></td>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/dmlexercises.php" target="exercises" style="font-size: 8pt;"><b>DML</b> exercises</a></td>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/developers.php" style="font-size: 8pt;">Developers</a></td>
+ <td align="right" width="20%">
+
+<!--LiveInternet counter--><script language="JavaScript"><!--
+document.write('<a href="http://www.liveinternet.ru/click" '+
+'target="_blank"><img src="https://counter.yadro.ru/hit?t16.2;r'+
+escape(document.referrer)+((typeof(screen)=='undefined')?'':
+';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+';'+Math.random()+'" title="liveinternet.ru: число просмотров и посетителей за сутки и за сегодня" border="0" width="88" height="31"></a>')//--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="./Description of databases_files/hit" title="liveinternet.ru: число просмотров и посетителей за сутки и за сегодня" border="0" width="88" height="31"></a>
+<!--/LiveInternet-->
+
+ </td></tr>
+</tbody></table>
+</body></html>

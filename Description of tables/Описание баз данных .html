@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://sql-ex.ru/help/select13.php#db_2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./Описание баз данных _files/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+	<!-- Yandex Native Ads -->
+	<script type="text/javascript" async="" src="./Описание баз данных _files/top100.js.Без названия"></script><script>window.yaContextCb=window.yaContextCb||[]</script>
+	<script src="./Описание баз данных _files/context.js.Без названия" async=""></script>
+
+ <title>Справка&nbsp;по&nbsp;SQL(DML): Приложения. Описание учебных баз данных и список упражнений</title>
+        <link rel="stylesheet" type="text/css" href="./Описание баз данных _files/style.css">
+		<link rel="stylesheet" type="text/css" href="./Описание баз данных _files/help.css">
+
+    	<link rel="stylesheet" title="Default" href="./Описание баз данных _files/default.css">
+        <script type="text/javascript" src="./Описание баз данных _files/highlight.js.Без названия"></script>
+        <meta name="Description" content="Самоучитель SQL: Приложения. Описание учебных баз данных и список упражнений.">
+        <meta name="Keywords" content="SQL, руководство, справочник по SQL, справка по языку SQL, sql запросы, упражнения, тестирование, обучение, операторы sql, SELECT, FROM, JOIN, WHERE, GROUP BY, HAVING, INSERT, UPDATE, DELETE, структурированный язык запросов">
+        <meta name="abstract" content="Справочник по языку манипуляции данными SQL с примерами использования всех синтаксических конструкций стандарта языка DML. Особенности использования в MS SQL Server. Справочник сопровождается упражнениями, выполняемыми в режиме он-лайн на сайте.">
+        <meta name="title" content="Справочник по языку манипуляции данными SQL с примерами использования всех синтаксических конструкций стандарта языка DML. Особенности использования в MS SQL Server. Справочник сопровождается упражнениями, выполняемыми в режиме он-лайн на сайте.">
+        <script language="JAVASCRIPT" src="./Описание баз данных _files/main.js.Без названия"></script>
+ </head>
+ <body bgcolor="#F5F5F5">
+
+ <a name="ref_beg"></a>
+<!-- Yandex.RTB R-A-184442-11 -->
+<div id="yandex_rtb_R-A-184442-11"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-184442-11',
+    blockId: 'R-A-184442-11'
+  })
+})</script>
+<form name="frmtpl">
+<table width="98%" border="0" cellpadding="5" align="center">
+    <tbody><tr>
+        <td width="33%" bgcolor="#CCCCCC" valign="middle"><b><a class="none" href="https://sql-ex.ru/help/">Синтаксис SQL</a></b></td>
+        <td width="33%" bgcolor="#CCCCCC" align="center" valign="middle">
+         Language&nbsp;<select name="lsttpl" onchange="Sel_Lang(document.frmtpl.lsttpl.selectedIndex)"><option value="0" selected=""> Русский </option><option value="1"> English </option></select>
+        </td>
+        <td width="33%" bgcolor="#CCCCCC" align="right" valign="middle"><label for="pages">Страница&nbsp;</label><select name="pages" onchange="location=this.value"><option value="select0.php">Оглавл.</option><option value="select1.php">1</option><option value="select2.php">2</option><option value="select3.php">3</option><option value="select4.php">4</option><option value="select5.php">5</option><option value="select6.php">6</option><option value="select7.php">7</option><option value="select8.php">8</option><option value="select9.php">9</option><option value="select10.php">10</option><option value="select11.php">11</option><option value="select12.php">12</option><option value="select13.php" selected="">13</option><option value="select14.php">14</option><option value="select15.php">15</option><option value="select16.php">16</option><option value="select17.php">17</option><option value="select18.php">18</option><option value="select19.php">19</option><option value="select20.php">20</option></select><!-- Top100 (Kraken) Counter -->
+<script>
+    (function (w, d, c) {
+    (w[c] = w[c] || []).push(function() {
+        var options = {
+            project: 718545,
+        };
+        try {
+            w.top100Counter = new top100(options);
+        } catch(e) { }
+    });
+    var n = d.getElementsByTagName("script")[0],
+    s = d.createElement("script"),
+    f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src =
+    (d.location.protocol == "https:" ? "https:" : "http:") +
+    "//st.top100.ru/top100/top100.js";
+
+    if (w.opera == "[object Opera]") {
+    d.addEventListener("DOMContentLoaded", f, false);
+} else { f(); }
+})(window, document, "_top100q");
+</script>
+<noscript>
+  <img src="//counter.rambler.ru/top100.cnt?pid=718545" alt="???-100" />
+</noscript>
+<!-- END Top100 (Kraken) Counter -->
+
+</td>
+</tr>
+</tbody></table>
+</form><a name="apx1"></a>
+<div style="width:90%;position:relative;left:5%;">
+<h1>Приложение 1. Описание учебных баз данных</h1>
+<p>Упражнения выполняются на базах данных, описание которых приводится ниже.
+<a name="db_1"></a></p><h2>1. Компьютерная фирма</h2>
+Схема БД состоит из четырех таблиц:<br>
+Product(maker, model, type)<br>
+PC(code, model, speed, ram, hd, cd, price)<br>
+Laptop(code, model, speed, ram, hd,  price, screen)<br>
+Printer(code, model, color, type, price)<br>
+Таблица Product представляет производителя (maker), номер модели (model) и тип ('PC' - ПК, 'Laptop' - ПК-блокнот или 'Printer' - принтер). Предполагается, что номера моделей в таблице Product уникальны для всех производителей и типов продуктов. В таблице PC для каждого ПК, однозначно определяемого уникальным кодом – code, указаны модель – model (внешний ключ к таблице Product), скорость - speed (процессора в мегагерцах), объем памяти - ram (в мегабайтах), размер диска - hd (в гигабайтах), скорость считывающего устройства - cd (например, '4x') и цена - price (в долларах). Таблица Laptop аналогична таблице РС за исключением того, что вместо скорости CD содержит размер экрана -screen (в дюймах). В таблице Printer для каждой модели принтера указывается, является ли он цветным - color ('y', если цветной), тип принтера - type (лазерный – 'Laser', струйный – 'Jet' или матричный – 'Matrix') и цена - price.<br>
+<center><img src="./Описание баз данных _files/computers.gif"></center>
+<a name="db_2"></a><h2>2. Фирма вторсырья</h2>
+Фирма имеет несколько пунктов приема вторсырья. Каждый пункт получает деньги для их выдачи сдатчикам вторсырья. Сведения о получении денег на пунктах приема записываются в таблицу:<br>
+Income_o(point, date, inc)<br>
+Первичным ключом является (point, date). При этом в столбец date записывается только дата (без времени), т.е. прием денег (inc) на каждом пункте производится не чаще одного раза в день. Сведения о выдаче денег сдатчикам вторсырья записываются в таблицу:<br>
+Outcome_o(point, date, out)<br>
+В этой таблице также первичный ключ (point, date) гарантирует отчетность каждого пункта о выданных деньгах (out) не чаще одного раза в день.<br>
+В случае, когда приход и расход денег может фиксироваться несколько раз в день, используется другая схема с таблицами, имеющими первичный ключ code:<br>
+Income(code, point, date, inc)<br>
+Outcome(code, point, date, out)<br>
+Здесь также значения столбца date не содержат времени.<center><img width="90%" src="./Описание баз данных _files/income.gif"></center>
+<a name="db_3"></a>
+<!-- Yandex.RTB -->
+<!-- Yandex.RTB R-A-184442-9 -->
+<div id="yandex_rtb_R-A-184442-9"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-184442-9',
+    blockId: 'R-A-184442-9'
+  })
+})</script>
+<h2>3. Корабли</h2>
+Рассматривается БД кораблей, участвовавших во второй мировой войне. Имеются следующие отношения:<br>
+      Classes (class, type, country, numGuns, bore, displacement)<br>
+      Ships (name, class, launched)<br>
+      Battles (name, date)<br>
+      Outcomes (ship, battle, result)  <br>
+Корабли в «классах» построены по одному и тому же проекту, и классу присваивается либо имя первого корабля, построенного по данному проекту, либо названию класса дается имя проекта, которое не совпадает ни с одним из кораблей в БД. Корабль, давший название классу, называется головным.<br>
+Отношение Classes содержит имя класса, тип (bb для боевого (линейного) корабля или bc для боевого крейсера), страну, в которой построен корабль, число главных орудий, калибр орудий (диаметр ствола орудия в дюймах) и водоизмещение ( вес в тоннах). В отношении Ships записаны название корабля, имя его класса и год спуска на воду. В отношение Battles включены название и дата битвы, в которой участвовали корабли, а в отношении Outcomes – результат участия данного корабля в битве (потоплен-sunk, поврежден - damaged или невредим - OK).  <br>
+Замечания. 1) В отношение Outcomes могут входить корабли, отсутствующие в отношении Ships. 2) Потопленный корабль в последующих битвах участия не принимает.<center><img src="./Описание баз данных _files/ships.gif"></center>
+<a name="db_4"></a>
+<h2>4. Аэрофлот</h2>
+Схема БД состоит из четырех отношений:<br>
+Company (ID_comp, name)<br>
+Trip(trip_no, ID_comp, plane, town_from, town_to, time_out, time_in)<br>
+Passenger(ID_psg, name)<br>
+Pass_in_trip(trip_no, date, ID_psg, place)<br>
+Таблица Company содержит идентификатор и название компании, осуществляющей перевозку пассажиров. Таблица Trip содержит информацию о рейсах: номер рейса, идентификатор компании, тип самолета, город отправления, город прибытия, время отправления и время прибытия. Таблица Passenger содержит идентификатор и имя пассажира. Таблица Pass_in_trip содержит информацию о полетах: номер рейса, дата вылета (день), идентификатор пассажира и место, на котором он сидел во время полета. При этом следует иметь в виду, что<br>
+- рейсы выполняются ежедневно, а длительность полета любого рейса менее суток; town_from &lt;&gt; town_to;<br>
+- время и дата учитывается относительно одного часового пояса;<br>
+- время отправления и прибытия указывается с точностью до минуты;<br>
+- среди пассажиров могут быть однофамильцы (одинаковые значения поля name, например, Bruce Willis);<br>
+- номер места в салоне – это число с буквой; число определяет номер ряда, буква (a – d) – место в ряду слева направо в алфавитном порядке;<br>
+- связи и ограничения показаны на схеме данных.<center><img src="./Описание баз данных _files/aero.gif"></center>
+<a name="db_5"></a><h2>5. Окраска</h2>
+Схема базы данных состоит из трех отношений:<br>
+utQ (Q_ID int, Q_NAME varchar(35)); utV (V_ID int, V_NAME varchar(35), V_COLOR char(1)); utB (B_DATETIME datetime, B_Q_ID int, B_V_ID int, B_VOL tinyint).<br>
+Таблица utQ содержит идентификатор и название квадрата, цвет которого первоначально черный.<br>
+Таблица utV содержит идентификатор, название и цвет баллончика с краской.<br>
+Таблица utB содержит информацию об окраске квадрата баллончиком:  время окраски, идентификатор квадрата, идентификатор баллончика, количество краски.<br>
+При этом следует иметь в виду, что:<br>
+- баллончики с краской могут быть трех цветов - красный V_COLOR='R', зеленый V_COLOR='G', голубой V_COLOR='B' (латинские буквы).<br>
+- объем баллончика равен 255 и первоначально он полный;<br>
+- цвет квадрата определяется по правилу RGB, т.е. R=0,G=0,B=0 - черный, R=255, G=255, B=255 - белый;<br>
+- запись в таблице закрасок utB уменьшает количество краски в баллончике на величину B_VOL и соответственно увеличивает количество краски в квадрате на эту же величину;<br>
+- значение 0 &lt; B_VOL &lt;= 255;<br>
+- количество краски одного цвета в квадрате не превышает 255, а количество краски в баллончике не может быть меньше нуля;<br>
+- время окраски B_DATETIME дано с точностью до секунды, т.е. не содержит миллисекунд.<center><img src="./Описание баз данных _files/painting.gif"></center>
+
+<a name="apx2"></a><h1>Приложение 2. Список упражнений (SELECT)</h1>
+<p>Ниже приводится список рейтинговых упражнений первого этапа, необязательных к решению с точки зрения сертификации и продвижения по этапам.<br>
+Указывается номер, под которым упражнение фигурирует в
+заданиях, номер базы данных, к которой относится упражнение, и уровень сложности.<br><br>
+<style type="text/css">
+<!--
+.cell {
+    border:#750000 solid 1px;
+    cursor:pointer;
+    color:#750000;
+}
+.inv {
+	display:none;
+}
+-->
+</style></p><table border="0" cellpadding="5" align="center"><tbody><tr><td align="center" bgcolor="#D3DCE3"><b>Номер</b></td><td align="center" bgcolor="#D3DCE3"><b>База</b></td><td align="center" bgcolor="#D3DCE3"><b>Уровень</b></td><td align="center" bgcolor="#D3DCE3"><b>Упражнение</b></td></tr>
+<tr><td bgcolor="#DDDDDD">-1</td><td bgcolor="#DDDDDD">5</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD"><a class="let" href="http://www.sqlbooks.ru/readarticle.aspx?part=09&amp;file=addition12" target="_blank">Методом наименьших квадратов</a> найти линейную зависимость мгновенного расхода краски от времени:   
+V = at + b,   
+где   V - расход краски; t - время в секундах, отсчитываемое от первой окраски (t = 0).  
+Вывод: a с 8-ю знаками после десятичной точки;  b - с 2-мя знаками после десятичной точки.  </td></tr>
+<tr><td bgcolor="#CCCCCC">-2</td><td bgcolor="#CCCCCC">3</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">Для каждой страны определить год, когда на воду было спущено максимальное количество ее кораблей. В случае, если окажется несколько таких лет, взять минимальный из них.  
+Вывод: страна, количество кораблей, год
+Замечание. Учитывать только корабли с известным годом спуска на воду.</td></tr>
+<tr><td bgcolor="#DDDDDD">-3</td><td bgcolor="#DDDDDD">5</td><td bgcolor="#DDDDDD">2</td><td bgcolor="#DDDDDD">На планете <a class="let" href="http://www.sql-tutorial.ru/ru/book_torus_planet.html">Торус 6x4</a> живут торусианцы трёх цветов (красные, зелёные и синие).
+Первые 24 квадрата таблицы utQ, отсортированные по Q_ID - страны планеты:
+Т00 - первый квадрат
+Т03 - четвёртый квадрат
+Т10 - пятый квадрат
+T53 - двадцать четвертый квадрат 
+Количество краски на квадрате - численность торусианцев соответствующего цвета в стране (R, G, B).
+В день рождения Меркадота все торусианцы в каждой стране разбиваются на группы - 8 групп каждого цвета; численность каждой группы определяется как R/8, G/8, B/8 - и направляются в 8 соседних стран (по одной группе каждого цвета на страну). 
+Не попавшие в группы торусианцы в количестве R%8, G%8, B%8 остаются дома.
+Найти количество торусианцев каждого цвета в каждой стране в этот знаменательный день.
+Вывести на карте Меркадота для страны "Т00" количество торусианцев каждого цвета в странах Txy (x - номер строки, y - номер столбца) в формате "Txy - cccR cccG cccB", где Txy - название страны, ccc - количество с ведущими нулями.
+</td></tr>
+<tr><td bgcolor="#CCCCCC">-4</td><td bgcolor="#CCCCCC">5</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">Найти квадраты, время между первой и последней окраской которых превышает среднее время по всем окрашенным квадратам.
+Вывести название квадрата и наибольшее время между двумя его последовательными окрасками в секундах.</td></tr>
+<tr><td bgcolor="#DDDDDD">-5</td><td bgcolor="#DDDDDD">3</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">В таблице Battles кроме крупных битв с участием многих кораблей содержатся также записи, начинающиеся с символа #, содержащие информацию о мелких стычках. Связанные инциденты объединены в группы от 1 до 6 стычек.
+Формат наименования для таких записей следующий:
+- после # идет код группы инцидентов (не содержит цифр, может отсутствовать)
+- далее идет номер группы в журнале регистрации (целое число, присутствует обязательно)
+- далее указывается номер инцидента внутри группы. Инциденты могут нумероваться арабскими и римскими цифрами, буквами латинского алфавита с различными разделителями, например a,b,c... /1,/2,/3... .1,.2,.3... i,ii,iii... и т.п.
+Нумерация едина для всей группы и не содержит пропусков.
+Первая или единственная стычка в группе может не иметь дополнительного номера.
+Требуется вывести список стычек, отсортированный по коду группы, номеру группы, дополнительному номеру. 
+Вывод: наименование стычки, номер по порядку (начиная с 1)</td></tr>
+<tr><td bgcolor="#CCCCCC">-6</td><td bgcolor="#CCCCCC">4</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">Опираясь на утверждение, что одна секунда полета каждого пассажира приносит перевозчику 1 цент (0.01$) дохода, провести АВС-анализ привлекательности пассажиров вне зависимости от перевозчика.
+В основе метода лежит принцип Парето - 20% всех товаров дают 80% оборота. При выполнении анализа пассажиры делятся на 3 категории по степени их ценности: А, В и С.
+Порядок проведения анализа:
+1. Рассчитываем долю дохода пассажира от общей суммы дохода, приносимой всеми пассажирами, с накопительным итогом. Доля с накопительным итогом высчитывается путём прибавления доли конкретного пассажира к сумме долей пассажиров с не меньшей долей дохода (при одинаковой доле дохода меньший накопительный итог будет у пассажира, имя которого идет раньше в алфавитном порядке).
+2. Выделяем категории А,В и С. Категория А - округленная до двух десятичных знаков накопительная доля с 0,00% по 80,00% включительно, категория В - с 80,01% до 95,00%, категория С - с 95,01% до 100%.
+Вывод: имя пассажира, сумма прибыли в долларах, доля с накопительным итогом в процентах (точность - 2 знака после запятой), категория (А, В или С - буквы латинские)
+</td></tr>
+<tr><td bgcolor="#DDDDDD">-7</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">В таблице Product найти модели, у которых первый символ представляет собой четную цифру, а последний - нечетную.
+При этом первый символ должен быть меньше последнего.
+Вывод: номер модели, тип модели, произведение первой и последней цифр в номере модели
+</td></tr>
+<tr><td bgcolor="#CCCCCC">-8</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">Фирма открывает новые пункты по приему вторсырья.
+При открытии, каждому из них были выданы "подъемные" в размере 20 т.р.
+Каждому из пунктов была поставлена задача об увеличении первоначального капитала до 150%, с отчетностью - один раз в день. Используя одну только таблицу Outcome_o и при условии, что пункты работают с двойной накруткой, то есть на каждый выплаченный сдатчику рубль они получают доход 2 рубля, найти:
+- Для пунктов, справившихся с заданием, определить дату его выполнения и сумму денежных средств, полученных сверх плана на эту дату;
+- Для пунктов, которые не справились с заданием, определить на последнюю отчетную дату сумму денежных средств, недостающих до его выполнения.
+Вывод: пункт, дата выполнения (или последний день), сумма сверх плана (или недостающую сумму до плана).</td></tr>
+<tr><td bgcolor="#DDDDDD">-9</td><td bgcolor="#DDDDDD">3</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">В таблице Outcomes один и тот же корабль может встречаться неоднократно (принимал участие в нескольких сражениях).
+Требуется найти корабли, имена которых различаются только регистром букв, например, "Duke of York" и "duke Of york".
+Вывод: имя корабля (любой из вариантов), число различных вариантов написания имени данного корабля в таблице.</td></tr>
+<tr><td bgcolor="#CCCCCC">-10</td><td bgcolor="#CCCCCC">4</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">Отобразить карту полётов на статических картах Google.
+На карте вывести только уникальные направления полётов таким образом, что название первого города раньше по алфавиту, чем название второго города.
+Например, если есть рейс из Рима в Берлин, но нет из Берлина в Рим, то вывести направление Берлин-Рим. Или если есть оба рейса, из Милана в Мадрид и из Мадрида в Милан, то вывести только направление Мадрид-Милан.
+Полученные направления вывести в алфавитном порядке их городов.
+Для каждого города вывести метки с первой буквой его названия.
+В итоге должна получиться строка следующего вида (без переводов строк):
+&lt;img src="http://maps.googleapis.com/maps/api/staticmap
+?path=weight:3|Aaa|Bbb
+&amp;path=weight:3|Aaa|Ccc
+&amp;path=weight:3|Bbb|Ccc
+&amp;markers=label:A|Aaa
+&amp;markers=label:B|Bbb
+&amp;markers=label:C|Ccc
+&amp;size=512x512&amp;sensor=false"&gt;
+
+где
+&lt;img src="http://maps.googleapis.com/maps/api/staticmap - это указание использовать статические карты Google;
+?path=weight:3|Aaa|Bbb - первое направление, из пункта Aaa в Bbb, с толщиной линии 3;
+&amp;path=weight:3|... - все следующие направления;
+&amp;markers=label:A|Aaa - метка (A) города Aaa;
+&amp;size=512x512 - указание размера карты 512x512;
+&amp;sensor=false"&gt; - обязательный параметр.</td></tr>
+<tr><td bgcolor="#DDDDDD">-11</td><td bgcolor="#DDDDDD">3</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">Для каждого корабля из таблицы Ships вывести его название в base64 (<a class="let" href="http://ru.wikipedia.org/wiki/Base64" target="_blank">wikipedia</a>).
+Вывод: name, base64name.</td></tr>
+<tr><td bgcolor="#CCCCCC">-12</td><td bgcolor="#CCCCCC">4</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">В аэропорту математик Иванов развлекал себя подсчетом факториала от номера рейса.
+Для каждого рейса в Trip определите на сколько нулей оканчивается вычисленное Ивановым число.
+Замечание: номер рейса содержит не более 4 цифр. 
+Вывод: trip_no, число нулей.
+</td></tr>
+<tr><td bgcolor="#DDDDDD">-13</td><td bgcolor="#DDDDDD">4</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">Определить количество перевезенных пассажиров за каждый календарный день (по дате вылета) первого полугодия 2003 года, начиная от даты первого рейса и заканчивая датой последнего рейса в этом полугодии. Полугодием считать интервал с (01.01.03 по 30.06.03). Вывести дату, количество пассажиров. </td></tr>
+<tr><td bgcolor="#CCCCCC">-14</td><td bgcolor="#CCCCCC">3</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">Вывести названия только тех классов, у которых каждый корабль имеет такое имя, что любой его символ встречается в названии какого-либо класса.
+Замечание: регистр букв при сравнении не учитывается.</td></tr>
+<tr><td bgcolor="#DDDDDD">-15</td><td bgcolor="#DDDDDD">5</td><td bgcolor="#DDDDDD">2</td><td bgcolor="#DDDDDD">На плоском песчаном пляже в координатах B_Q_ID, B_V_ID установлены круглые пляжные зонтики радиуса B_VOL. Зонтики параллельны песку, солнце в зените. Каждое значение B_DATETIME - отдельная задача. Найти площадь тени для каждого B_DATETIME.
+Вывод: B_DATETIME, площадь тени округлённая до целых.</td></tr>
+<tr><td bgcolor="#CCCCCC">-16</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">1</td><td bgcolor="#CCCCCC">Найти такие пункты приема, которые имеют в таблице Outcome записи на каждый рабочий день в течение некоторой недели (календарные дни, исключая субботу и воскресенье).
+Вывод: номер пункта, дата понедельника полной рабочей недели в формате "YYYY-MM-DD", суммарное значение out за эту рабочую неделю.</td></tr>
+<tr><td bgcolor="#DDDDDD">-17</td><td bgcolor="#DDDDDD">4</td><td bgcolor="#DDDDDD">1</td><td bgcolor="#DDDDDD">Номера рейсов, упорядоченные по возрастанию, конкатенировать в строку. 
+Разбить полученную строку по 3 символа, начиная слева; лишние символы отбросить.
+Считая каждую трехсимвольную строку числом, найти сумму таких чисел, а также минимальное и максимальное значения.
+Вывод: минимальное значение, максимальное значение, сумма значений.</td></tr>
+<tr><td bgcolor="#CCCCCC">-18</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">2</td><td bgcolor="#CCCCCC">Рассматриваются таблицы Income и Income_o, записи в них относятся к одинаковым пунктам.
+Учесть для каждого пункта, что в интервале между первой и последней датами прихода на него денег, пункт работал во все даты, зафиксированные в используемых таблицах для любых пунктов.
+Для каждого из пунктов с наибольшим средним приходом денег за рабочий день определить дату(даты) с максимальным приходом денег на этот пункт. Для этих дат вывести ВСЮ имеющуюся информацию из таблиц: point, date, inc, code (или NULL, если запись относится к Income_o).</td></tr>
+</tbody></table></div><br><br>
+<center>
+<small>
+
+</small>
+</center>
+<br><br><p></p>
+<!-- раскраска -->
+  	<script type="text/javascript">
+      hljs.initHighlightingOnLoad('sql');
+    </script><script type="text/javascript" src="./Описание баз данных _files/sql.js.Без названия"></script>
+
+<center>
+<a href="https://sql-ex.ru/help/select12.php">Назад</a> | <a href="https://sql-ex.ru/help/select0.php">Содержание</a> | <a href="https://sql-ex.ru/help/select14.php">Вперед</a><br><br>
+<!-- Yandex.RTB --><!-- Yandex.RTB R-A-184442-10 -->
+<div id="yandex_rtb_R-A-184442-10"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-184442-10',
+    blockId: 'R-A-184442-10'
+  })
+})</script></center>
+
+<br>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC" valign="middle">
+ <tbody><tr>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/" style="font-size: 8pt;">Начало</a></td>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/exercises.php" target="exercises" style="font-size: 8pt;">Упражнения <b>SELECT (рейтинговые этапы)</b></a></td>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/dmlexercises.php" target="exercises" style="font-size: 8pt;">Упражнения <b>DML</b></a></td>
+ <td align="center" width="15%" onmouseout="this.style.backgroundColor=&#39;#CCCCCC&#39;" onmouseover="this.style.backgroundColor=&#39;#DDDDDD&#39;"><a href="https://sql-ex.ru/developers.php" style="font-size: 8pt;">Разработчики</a></td>
+ <td align="right" width="20%">
+
+<!--LiveInternet counter--><script language="JavaScript"><!--
+document.write('<a href="http://www.liveinternet.ru/click" '+
+'target="_blank"><img src="https://counter.yadro.ru/hit?t16.2;r'+
+escape(document.referrer)+((typeof(screen)=='undefined')?'':
+';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+';'+Math.random()+'" title="liveinternet.ru: число просмотров и посетителей за сутки и за сегодня" border="0" width="88" height="31"></a>')//--></script><a href="http://www.liveinternet.ru/click" target="_blank"><img src="./Описание баз данных _files/hit" title="liveinternet.ru: число просмотров и посетителей за сутки и за сегодня" border="0" width="88" height="31"></a>
+<!--/LiveInternet-->
+
+ </td></tr>
+</tbody></table>
+</body></html>
